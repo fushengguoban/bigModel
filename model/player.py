@@ -59,4 +59,28 @@ class Player:
             'details': details
         })
 
+    def get_important_event(self) -> str:
+        """获取所有重要事件的文本描述"""
+        if not self.important_events:
+            return "无重要事件描述"
+        events_text = []
+        for event in self.important_events:
+            events_text.append(f"第{event['round']}轮：{event['details']}")
+        return "\n".join(events_text)
 
+    def to_dict(self) -> dict:
+        """转换为字典"""
+        return {
+            "player_id": self.player_id,
+            "name": self.name,
+            "role": self.role.value,
+            "is_alive": self.is_alive,
+            "team": self.team,
+            "checked_by_seer": self.checked_by_seer,
+            "witch_saved": self.witch_saved,
+            "hunter_triggered": self.hunter_triggered,
+        }
+
+    def __str__(self) -> str:
+        status = "存活" if self.is_alive else "死亡"
+        return f"{self.name}({self.role.value}, {status})"
