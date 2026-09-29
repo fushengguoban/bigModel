@@ -17,7 +17,7 @@ def get_role_system_prompt(role:Role)->str:
     Args:
         role: 角色类型
 
-    Returns:
+    Returns:    
         系统提示词字符串
     """
     return ROLE_PROMPTS.get(

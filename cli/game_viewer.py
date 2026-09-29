@@ -1,5 +1,7 @@
 from typing import Optional
 
+from agent.agent_manager import AgentManager
+from cli.display import DisplayManager
 from llm import LLMConfig, create_llm
 
 
@@ -19,5 +21,6 @@ class GameViewer:
         self.show_model_debug = show_model_debug
 
         # 初始化组件
-        self.agent_manager = AgentManager()
+        self.agent_manager = AgentManager(self.llm)
+        self.display = DisplayManager()
         print("初始化游戏查看器")
