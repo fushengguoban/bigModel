@@ -23,4 +23,5 @@ class GameViewer:
         # 初始化组件
         self.agent_manager = AgentManager(self.llm)
         self.display = DisplayManager()
+        self.speech_recorder= SpeechRecorder()
         print("初始化游戏查看器")
